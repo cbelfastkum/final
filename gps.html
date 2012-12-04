@@ -11,14 +11,14 @@
 		<script type="text/javascrpt" charset="utf-8"> 
 	
 		
-		document.assDeventListener("deviceready",onDeviceReady,false); 
+		document.addEeventListener("deviceready",onDeviceReady,false); 
 		
 		var watchID = null; 
 		
 		function onDeviceReady() { 
 		// Update every three seconds 
 		var options = { frequency: 3000}; 
-		watchID = navigator.geolocation.watchPOsition(onSuccess, onError, options); 
+		watchID = navigator.geolocation.watchPosition(onSuccess, onError, options); 
 		} 
 		
 		//on success Geolocation 
