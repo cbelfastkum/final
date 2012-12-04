@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<title> Storage</title> 
+		<div data-role="page" >
+	  <div data-role="header" data-position="fixed" >
+		<h1>Test</h1>
+		<a href="index.html" rel="external">Home</a>
+	  </div>
+		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script> 
+		<script type="text/javascrpt" charset="utf-8"> 
+		
+		document.addEventListener("deviceready", onDeviceReady, false); 
+		
+		function onDeviceReady(){ 
+		
+		} 
+		
+		function storeName(){ 
+		var element = document.getElementById("geolocation").value; 
+		window.localStorage.setItem("geolocation", element); 
+
+		var result = document.getElementById("result"); 
+		result.innerHTML = "Your location is " + window.localstorage.getItem("gelocation"); 
+		</script> 
+	</head> 
+</html> 
+		
+		

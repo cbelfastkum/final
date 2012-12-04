@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<title> Watch My Position</title> 
+		<div data-role="page" >
+	  <div data-role="header" data-position="fixed" >
+		<h1>Test</h1>
+		<a href="index.html" rel="external">Home</a>
+	  </div>
+		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script> 
+		<script type="text/javascrpt" charset="utf-8"> 
+	
+		
+		document.assDeventListener("deviceready",onDeviceReady,false); 
+		
+		var watchID = null; 
+		
+		function onDeviceReady() { 
+		// Update every three seconds 
+		var options = { frequency: 3000}; 
+		watchID = navigator.geolocation.watchPOsition(onSuccess, onError, options); 
+		} 
+		
+		//on success Geolocation 
+		function onSuccess(position){ 
+			var element = document.getElementById('geolocation'); 
+			element.innerHTML = 'Latitude: ' position.coords.latitude + '<br />' + 'Longitude: ' + position.coords.longitude + '<br />' + '<hr />' + element.innerHTML; 
+			} 
+			
+			// on Error Callback recieves a PositionError object
+			
+			function on Error(error) { 
+				alert('code: '  +error.code  + '\n' + 'message:' + error.message + '\n'); 
+				} 
+				
+				</script> 
+			</head>
+			</body>
+				<p id="geolocation"> Watching geolocation...</p>
+			</body> 
+			</html> 

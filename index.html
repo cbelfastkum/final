@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<title> Take a Photo</title> 
+		
+		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script> 
+		<script type="text/javascrpt" charset="utf-8"> 
+		
+		document.addDeventListener("deviceready",onDeviceReady,false); 
+		
+		
+		function onDeviceReady() { 
+		}
+		
+		//successful retrival 
+	/*	
+	function onPhotoSuccess(imageData { 
+	var myImage = document.getElementById('myImage'); 
+	
+	myImage.style.display = 'block'; 
+	
+	myImage.src = "data:image/jpeg;base64," + imageData; 
+	}
+	
+	function capturePhoto() {
+	navigator.camera.getPicture(onPhoneSuccess, onPhotoFail, { quality : 50}); 
+	} 
+	
+	function onPhotoFail(message) { 
+		alert ('Failed because: ' + message); 
+		} 
+	*/	
+		
+		
+		
+	function onPhotoSuccess(imageData) {
+		
+		var myImage = document.getElementById("myImage");
+		myImage.style.display = "block";
+		myImage.src = imageData ;
+
+
+		
+    }
+
+   function capturePhoto() {
+    navigator.camera.getPicture(onPhotoSuccess, onPhotoFail, { quality: 50 });
+    }
+
+ 
+    function onPhotoFail(message) {
+      alert('Failed because: ' + message);
+    }
+
+	
+		</script> 
+		<div data-role="page" id="cameraPage" >
+		
+	
+	  <div data-role="header" data-position="fixed" >
+		<h1>Aye~iCruise</h1>
+		<a href="#home">Home</a>
+	  </div>
+		
+		<div data-role="content" >
+
+		<img style="display:none;width:150px;height:150px;" id="myImage" src="" />
+			
+		</div>
+			
+		
+		<div data-role="footer" data-position="fixed">
+		  <table border="0" width="100%"><tr><td align="center"><button onclick="capturePhoto()" >Capture Photo</button></td></tr></table>
+	   </div>
+	</div>
+		</div>
+	<a href="gps.html" rel="external" data-role="button" data-theme="b">GPS</a>
+	<a href="storage.html" data-role="button" data-theme="e">Storage</a>
+		
+  </div>
+		</head> 
+	</body> 
+	<button onclick="capturePhoto();">Capture Photo</button> <br>
+	
+	<img style="display:none;width:60px;height:60px;" id="myImage" src=" " />
+</html> 
